@@ -12,8 +12,6 @@
 
 using namespace std;
 
-
-// класс даты
 class Date {
 public:
 Date (const int& new_year, const int& new_month, const int& new_day) {
@@ -48,7 +46,7 @@ int y;
 int m;
 int d;
 };
-///////////////////////////////////////////////////////////
+
 bool operator<(const Date& lhs, const Date& rhs) {
 if (lhs.GetYear() < rhs.GetYear()) {
   return true;
@@ -57,7 +55,7 @@ if (lhs.GetYear() < rhs.GetYear()) {
   return true;
 } else return false;
 };
-///////////////////////////////////////////////////////////
+
 ostream& operator<<(ostream& stream, const Date& date){
 	stream << setfill('0') << setw(4) << to_string(date.GetYear());
 	stream << "-";
@@ -66,7 +64,7 @@ ostream& operator<<(ostream& stream, const Date& date){
 	stream << setfill('0') << setw(2) << to_string(date.GetDay());
 	return stream;
 }
-///////////////////////////////////////////////////////////
+
 istream& operator>>(istream& stream, Date& date){
 	int year, month, day;
   string vvod;
@@ -104,7 +102,7 @@ istream& operator>>(istream& stream, Date& date){
 	date = Date(year, month, day);
 	return stream;
 }
-///////////////////////////////////////////////////////////
+
 class Database {
 public:
 void AddEvent(const Date& date, const string& event) {
@@ -150,7 +148,7 @@ void Print() const {
 private:
 map<Date, set<string>> unit;
 };
-////////////////////////////////////////////////////
+
 int main() {
   Database db;
   string command;
